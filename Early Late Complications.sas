@@ -1,4 +1,4 @@
-PROC IMPORT OUT=comptime DATAFILE="H:\Active Clients\Priti, Parikh\Early Late Complications.xlsx"
+PROC IMPORT OUT=comptime DATAFILE="Early Late Complications.xlsx"
             DBMS=XLSX REPLACE;
 		    GETNAMES=YES;	
 			SHEET="Sheet1";
