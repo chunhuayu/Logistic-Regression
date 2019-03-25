@@ -4,7 +4,7 @@ PROC IMPORT OUT=comptime DATAFILE="Early Late Complications.xlsx"
 			SHEET="Sheet1";
 run;
 
-proc print data=comptime (obs=5);
+proc print data=comptime;
 run;
 
 * check distribution of observations in cells;
@@ -19,7 +19,7 @@ class Surgery (ref="Sleeve");
 model Complication = Surgery;
 run;
 
-* how you would run a multinomial logistic regression if the proportional odds assumption had been violated;
+
 proc logistic data=comptime descending;
 title "Ordinal Logisitc Regression";
 class Surgery (ref="Sleeve");
@@ -27,7 +27,6 @@ model Complication = Surgery / link=glogit;
 run;
 
 
-* how you would force a series of binary logistic regressions (not recommended, here for purposes of illustration);
 proc logistic data=comptime descending;
 where Complication=0 or Complication=1;
 title "Binary Logisitc Regression";
